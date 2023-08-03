@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\LatencyTestingController;
+use App\Http\Controllers\StatsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,6 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::delete('systems/{system}', 'destroy');
     });
 });
+
+Route::get('stats', [StatsController::class, 'index']);
+Route::post('stats/fake', [StatsController::class, 'make_fake_data']);

@@ -19,6 +19,7 @@ class LatencyTestingFactory extends Factory
         return [
             'alive' => fake()->boolean(),
             'time' => fake()->randomFloat(2, 1, 30),
+            'system_id' => fake()->numberBetween(1, 4)
         ];
     }
 }
