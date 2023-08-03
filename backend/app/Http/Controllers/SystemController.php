@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateSystemRequest;
 use App\Http\Resources\SystemCollection;
 use App\Http\Resources\SystemResource;
 use App\Models\System;
+use App\Helpers\IPHelper;
 
 class SystemController extends Controller
 {
@@ -69,5 +70,15 @@ class SystemController extends Controller
         return response()->json([
             'message' => 'The system has been removed'
         ]);
+    }
+
+    public function latencyTesting(System $system) {
+        $response = IPHelper::pingIPv4($system->ip_address);
+        $latency_testing = $system->latencyTestings()->create([
+            'alive' => $response['success'],
+            'time' => $response['response_time'],
+        ]);
+
+        return $latency_testing;
     }
 }

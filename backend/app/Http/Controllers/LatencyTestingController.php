@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreLatencyTestingRequest;
-use App\Http\Requests\UpdateLatencyTestingRequest;
+use Illuminate\Http\Request;
 use App\Models\LatencyTesting;
 
 class LatencyTestingController extends Controller
@@ -27,9 +26,9 @@ class LatencyTestingController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreLatencyTestingRequest $request)
+    public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -51,7 +50,7 @@ class LatencyTestingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateLatencyTestingRequest $request, LatencyTesting $latencyTesting)
+    public function update(Request $request, LatencyTesting $latencyTesting)
     {
         //
     }
