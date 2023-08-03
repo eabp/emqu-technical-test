@@ -14,4 +14,12 @@ class System extends Model
         'name',
         'ip_address',
     ];
+
+    /**
+     * Get the LatencyTesting for the System.
+     */
+    public function latencyTestings()
+    {
+        return $this->hasMany(LatencyTesting::class);
+    }
 }

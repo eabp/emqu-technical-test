@@ -64,6 +64,7 @@ class SystemController extends Controller
      */
     public function destroy(System $system)
     {
+        $this->authorize('delete', $system);
         $system->delete();
         return response()->json([
             'message' => 'The system has been removed'
