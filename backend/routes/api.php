@@ -4,6 +4,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SystemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('signup', [AuthController::class, 'signup']);
+Route::get('systems', [SystemController::class, 'index']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::controller(SystemController::class)->group(function () {
+        Route::post('systems', 'store');
+        Route::put('systems/{system}', 'update');
+        Route::delete('systems/{system}', 'destroy');
+    });
+});
+
 
 // Route::post('/login', function (Request $request) {
 //     $validated = $request->validate([
