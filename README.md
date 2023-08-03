@@ -1,6 +1,3 @@
-# emqu-technical-test
-
-
 # EMQU Technical Test
 
 Development of a web system, which allows, with an administered login, access to an equipment management module and an execution and statistics module.
